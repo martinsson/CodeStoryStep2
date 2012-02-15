@@ -31,7 +31,7 @@ public class InnHttpServer implements Container {
 		String path = req.getPath().getPath();
 
 		try {
-			if (path.matches(".*\\.((css)|(js)|(ico))")) {
+			if (path.matches(".*\\.(?:css|js|ico)")) {
 				copy(new File(WEB, path), resp.getOutputStream());
 			} else if (path.equals("/updateQuality")) {
 				inn.updateQuality();
