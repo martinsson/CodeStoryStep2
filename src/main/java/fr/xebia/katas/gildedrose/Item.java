@@ -2,8 +2,8 @@ package fr.xebia.katas.gildedrose;
 
 public class Item {
    private String name;
-   private int sellIn;
-   private int quality;
+   protected int sellIn;
+   protected int quality;
 
    public Item(String name, int sellIn, int quality) {
       this.name = name;
@@ -33,40 +33,22 @@ public class Item {
 
    protected void update() {
     
-    if (!getName().equals("Aged Brie") && !getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+    if (!getName().equals("Aged Brie")) {
         if (getQuality() > 0) {
            quality--;
         }
      } else {
         if (getQuality() < 50) {
            quality++;
-
-           if (getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-              if (getSellIn() < 11) {
-                 if (getQuality() < 50) {
-                    quality++;
-                 }
-              }
-
-              if (getSellIn() < 6) {
-                 if (getQuality() < 50) {
-                    quality++;
-                 }
-              }
-           }
         }
      }
     sellIn--;
 
      if (getSellIn() < 0) {
         if (!getName().equals("Aged Brie")) {
-           if (!getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
               if (getQuality() > 0) {
                  quality--;
               }
-           } else {
-              quality = 0;
-           }
         } else {
            if (getQuality() < 50) {
               quality++;
@@ -74,4 +56,10 @@ public class Item {
         }
      }
 }
+
+   protected void addQuality(int amount) {
+      if (getQuality() < 50) {
+         quality +=amount;
+      }
+   }
 }

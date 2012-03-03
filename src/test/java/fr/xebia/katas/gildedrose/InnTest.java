@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import static fr.xebia.katas.gildedrose.BackstagePass.aBackstagePass;
 import static fr.xebia.katas.gildedrose.Sulfuras.aSulfuras;
 import static java.util.Arrays.asList;
 import static org.fest.assertions.Assertions.assertThat;
@@ -28,7 +29,7 @@ public class InnTest {
         items.add(new Item("Aged Brie", 2, 0));
         items.add(new Item("Elixir of the Mongoose", 5, 0));
         items.add(aSulfuras(0, 0));
-        items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 0));
+        items.add(aBackstagePass(15, 0));
         items.add(new Item("Conjured Mana Cake", 3, 0));
         Inn inn = new Inn(items);
         inn.updateQuality();
@@ -39,7 +40,7 @@ public class InnTest {
             assertThat(item.getQuality()).isGreaterThanOrEqualTo(0);
         }
     }
-    @Test
+   @Test
     public void brie_quality_increases_with_time() throws Exception {
         int startQuality = 20;
         Item brie = new Item("Aged Brie", 10, startQuality);
@@ -53,7 +54,7 @@ public class InnTest {
         items.add(new Item("+5 Dexterity Vest", 10, maxQuality));
         items.add(new Item("Aged Brie", 2, maxQuality));
         items.add(new Item("Elixir of the Mongoose", 5, maxQuality));
-        items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, maxQuality));
+        items.add(aBackstagePass( 15, maxQuality));
         items.add(new Item("Conjured Mana Cake", 3, maxQuality));
         Inn inn = new Inn(items);
         inn.updateQuality();
@@ -78,7 +79,7 @@ public class InnTest {
     @Test
     public void backstage_passes_increases_by2_from_day_10_to_6_before_the_concert() throws Exception {
         int startQuality = 20;
-        Item sulfuras = new Item("Backstage passes to a TAFKAL80ETC concert", 10, startQuality);
+        Item sulfuras = aBackstagePass( 10, startQuality);
         Inn inn = new Inn(asList(sulfuras));
         inn.updateQuality();
         inn.updateQuality();
@@ -90,7 +91,7 @@ public class InnTest {
     @Test
     public void backstage_passes_increases_by3_from_day_5_to_0_before_the_concert() throws Exception {
         int startQuality = 20;
-        Item sulfuras = new Item("Backstage passes to a TAFKAL80ETC concert", 5, startQuality);
+        Item sulfuras = aBackstagePass( 5, startQuality);
         Inn inn = new Inn(asList(sulfuras));
         inn.updateQuality();
         inn.updateQuality();
@@ -102,19 +103,20 @@ public class InnTest {
     @Test
     public void backstage_passes_increases_by1_from_before_day_10_the_concert() throws Exception {
         int startQuality = 20;
-        Item sulfuras = new Item("Backstage passes to a TAFKAL80ETC concert", 15, startQuality);
+        Item sulfuras = aBackstagePass( 15, startQuality);
         Inn inn = new Inn(asList(sulfuras));
         inn.updateQuality();
         inn.updateQuality();
         inn.updateQuality();
         inn.updateQuality();
         inn.updateQuality();
-        assertThat(sulfuras.getQuality()).isEqualTo(startQuality + 5);
+        inn.updateQuality();
+        assertThat(sulfuras.getQuality()).isEqualTo(startQuality + 5*1+2);
     }
     @Test
     public void backstage_passes_is_0_after_the_concert() throws Exception {
         int startQuality = 20;
-        Item sulfuras = new Item("Backstage passes to a TAFKAL80ETC concert", 0, startQuality);
+        Item sulfuras = aBackstagePass( 0, startQuality);
         Inn inn = new Inn(asList(sulfuras));
         inn.updateQuality();
         assertThat(sulfuras.getQuality()).isEqualTo(0);

@@ -1,5 +1,6 @@
 package fr.xebia.katas.gildedrose;
 
+import static fr.xebia.katas.gildedrose.BackstagePass.aBackstagePass;
 import static fr.xebia.katas.gildedrose.Sulfuras.aSulfuras;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class Inn {
       items.add(new Item("Aged Brie", 2, 0));
       items.add(new Item("Elixir of the Mongoose", 5, 7));
       items.add(aSulfuras(0, 80));
-      items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
+      items.add(aBackstagePass(15, 20));
       items.add(new Item("Conjured Mana Cake", 3, 6));
       new Inn(items).updateQuality();
    }
