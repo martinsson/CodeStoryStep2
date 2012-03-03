@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import static fr.xebia.katas.gildedrose.Sulfuras.aSulfuras;
 import static java.util.Arrays.asList;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.*;
@@ -26,7 +27,7 @@ public class InnTest {
         items.add(new Item("+5 Dexterity Vest", 10, 0));
         items.add(new Item("Aged Brie", 2, 0));
         items.add(new Item("Elixir of the Mongoose", 5, 0));
-        items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 0));
+        items.add(aSulfuras(0, 0));
         items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 0));
         items.add(new Item("Conjured Mana Cake", 3, 0));
         Inn inn = new Inn(items);
@@ -66,7 +67,7 @@ public class InnTest {
     @Test
     public void sulfuras_never_decreases_in_quality() throws Exception {
         int startQuality = 80;
-        Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, startQuality);
+        Item sulfuras = aSulfuras(startQuality, 0);
         Inn inn = new Inn(asList(sulfuras));
         inn.updateQuality();
         inn.updateQuality();

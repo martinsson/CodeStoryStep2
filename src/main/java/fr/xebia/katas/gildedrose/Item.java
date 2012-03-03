@@ -34,9 +34,7 @@ public class Item {
 protected void update() {
     if (!getName().equals("Aged Brie") && !getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
         if (getQuality() > 0) {
-           if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
-              setQuality(getQuality() - 1);
-           }
+           setQuality(getQuality() - 1);
         }
      } else {
         if (getQuality() < 50) {
@@ -66,9 +64,7 @@ protected void update() {
         if (!getName().equals("Aged Brie")) {
            if (!getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
               if (getQuality() > 0) {
-                 if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
-                    setQuality(getQuality() - 1);
-                 }
+                 setQuality(getQuality() - 1);
               }
            } else {
               setQuality(getQuality() - getQuality());
