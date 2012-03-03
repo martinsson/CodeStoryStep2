@@ -31,47 +31,45 @@ public class Item {
       return quality;
    }
 
-protected void update() {
+   protected void update() {
+    
     if (!getName().equals("Aged Brie") && !getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
         if (getQuality() > 0) {
-           setQuality(getQuality() - 1);
+           quality--;
         }
      } else {
         if (getQuality() < 50) {
-           setQuality(getQuality() + 1);
+           quality++;
 
            if (getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
               if (getSellIn() < 11) {
                  if (getQuality() < 50) {
-                    setQuality(getQuality() + 1);
+                    quality++;
                  }
               }
 
               if (getSellIn() < 6) {
                  if (getQuality() < 50) {
-                    setQuality(getQuality() + 1);
+                    quality++;
                  }
               }
            }
         }
      }
-
-     if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
-        setSellIn(getSellIn() - 1);
-     }
+    sellIn--;
 
      if (getSellIn() < 0) {
         if (!getName().equals("Aged Brie")) {
            if (!getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
               if (getQuality() > 0) {
-                 setQuality(getQuality() - 1);
+                 quality--;
               }
            } else {
-              setQuality(getQuality() - getQuality());
+              quality = 0;
            }
         } else {
            if (getQuality() < 50) {
-              setQuality(getQuality() + 1);
+              quality++;
            }
         }
      }
