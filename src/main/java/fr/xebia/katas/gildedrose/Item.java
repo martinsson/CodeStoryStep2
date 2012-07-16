@@ -33,28 +33,16 @@ public class Item {
 
    protected void update() {
     
-    if (!getName().equals("Aged Brie")) {
-        if (getQuality() > 0) {
-           quality--;
-        }
-     } else {
-        if (getQuality() < 50) {
-           quality++;
-        }
-     }
-    sellIn--;
+      if (getQuality() > 0) {
+         quality--;
+      }
+      sellIn--;
 
-     if (getSellIn() < 0) {
-        if (!getName().equals("Aged Brie")) {
-              if (getQuality() > 0) {
-                 quality--;
-              }
-        } else {
-           if (getQuality() < 50) {
-              quality++;
-           }
-        }
-     }
+      if (getSellIn() < 0) {
+         if (getQuality() > 0) {
+            quality--;
+         }
+      }
 }
 
    protected void addQuality(int amount) {

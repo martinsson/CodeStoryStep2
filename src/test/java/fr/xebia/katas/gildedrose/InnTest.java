@@ -43,7 +43,7 @@ public class InnTest {
    @Test
     public void brie_quality_increases_with_time() throws Exception {
         int startQuality = 20;
-        Item brie = new Item("Aged Brie", 10, startQuality);
+        Item brie = AgedBrie.anAgedBrie(10, startQuality);
         new Inn(asList(brie)).updateQuality();
         assertThat(brie.getQuality()).isEqualTo(startQuality+1);
     }
