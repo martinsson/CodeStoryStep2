@@ -8,40 +8,38 @@ public class Item {
       this.quality = quality;
       this.sellIn = sellIn;
    }
-
-   public void setSellIn(int sellIn) {
-      this.sellIn = sellIn;
-   }
-
-   public void setQuality(int quality) {
-      this.quality = quality;
-   }
-
-   public int getSellIn() {
-      return sellIn;
-   }
-
-   public int getQuality() {
-      return quality;
-   }
-
-   protected void update() {
-    
-      if (getQuality() > 0) {
-         quality--;
-      }
+   public void update() {
       sellIn--;
-
       if (getSellIn() < 0) {
-         if (getQuality() > 0) {
-            quality--;
-         }
+         addQuality(-2);
+      } else {
+         addQuality(-1);
       }
 }
 
    protected void addQuality(int amount) {
-      if (getQuality() < 50) {
-         quality +=amount;
-      }
+      quality +=amount;
+      if (getQuality() > 50)
+         quality = 50;
+      if (getQuality() < 0) 
+         quality = 0;
+      
    }
+   
+   protected void setSellIn(int sellIn) {
+      this.sellIn = sellIn;
+   }
+   
+   protected void setQuality(int quality) {
+      this.quality = quality;
+   }
+   
+   protected int getSellIn() {
+      return sellIn;
+   }
+   
+   protected int getQuality() {
+      return quality;
+   }
+   
 }

@@ -6,7 +6,7 @@ class AgedBrie extends Item {
       super("Aged Brie", sellIn, quality);
    }
    @Override
-   protected void update() {
+   public void update() {
       sellIn--;
       if (getSellIn() < 0) {
          addQuality(2);
