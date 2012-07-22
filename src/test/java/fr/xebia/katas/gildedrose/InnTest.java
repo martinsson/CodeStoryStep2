@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import static fr.xebia.katas.gildedrose.AgedBrie.anAgedBrie;
 import static fr.xebia.katas.gildedrose.BackstagePass.aBackstagePass;
 import static fr.xebia.katas.gildedrose.Sulfuras.aSulfuras;
 import static java.util.Arrays.asList;
@@ -26,7 +27,7 @@ public class InnTest {
         
         ArrayList<Item> items = new ArrayList<Item>();
         items.add(new Item("+5 Dexterity Vest", 10, 0));
-        items.add(new Item("Aged Brie", 2, 0));
+        items.add(AgedBrie.anAgedBrie(2, 0));
         items.add(new Item("Elixir of the Mongoose", 5, 0));
         items.add(aSulfuras(0, 0));
         items.add(aBackstagePass(15, 0));
@@ -40,22 +41,37 @@ public class InnTest {
             assertThat(item.getQuality()).isGreaterThanOrEqualTo(0);
         }
     }
+    
    @Test
     public void brie_quality_increases_with_time() throws Exception {
         int startQuality = 20;
-        Item brie = AgedBrie.anAgedBrie(10, startQuality);
+        Item brie = anAgedBrie(10, startQuality);
         new Inn(asList(brie)).updateQuality();
         assertThat(brie.getQuality()).isEqualTo(startQuality+1);
     }
+   
+   @Test
+   public void brie_quality_increases_twice_as_fast_after_the_date_has_passed() throws Exception {
+      int startQuality = 20;
+      Item brie = anAgedBrie(1, startQuality);
+      Inn inn = new Inn(asList(brie));
+      inn.updateQuality();
+      assertThat(brie.getQuality()).isEqualTo(startQuality+1);
+      inn.updateQuality();
+      assertThat(brie.getQuality()).isEqualTo(startQuality+3);
+      inn.updateQuality();
+      assertThat(brie.getQuality()).isEqualTo(startQuality+5);
+   }
+   
     @Test
     public void qualityNeverExceeds50() throws Exception {
         ArrayList<Item> items = new ArrayList<Item>();
         int maxQuality = 50;
-        items.add(new Item("+5 Dexterity Vest", 10, maxQuality));
-        items.add(new Item("Aged Brie", 2, maxQuality));
-        items.add(new Item("Elixir of the Mongoose", 5, maxQuality));
-        items.add(aBackstagePass( 15, maxQuality));
-        items.add(new Item("Conjured Mana Cake", 3, maxQuality));
+        items.add(new Item("+5 Dexterity Vest", 50, maxQuality));
+        items.add(anAgedBrie(50, maxQuality));
+        items.add(new Item("Elixir of the Mongoose", 50, maxQuality));
+        items.add(aBackstagePass( 50, maxQuality));
+        items.add(new Item("Conjured Mana Cake", 50, maxQuality));
         Inn inn = new Inn(items);
         inn.updateQuality();
         inn.updateQuality();

@@ -9,7 +9,7 @@ class BackstagePass extends Item {
    @Override
    protected void update() {
       if (getSellIn() < 1) {
-         quality = 0;
+         setQuality(0);
       } else if (getSellIn() < 6) {
             addQuality(3);
       } else if (getSellIn() < 11) {
