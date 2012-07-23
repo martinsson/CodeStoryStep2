@@ -48,7 +48,7 @@ public class RemyInnTest {
         items.add(new Item("Aged Brie", 2, 0));
         items.add(new Item("Elixir of the Mongoose", 5, 0));
         items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 0));
-        items.add(BackstagePass.aBackstagePass(15, 0));
+        items.add((Item) new BackstagePass(15, 0));
         items.add(new Item("Conjured Mana Cake", 3, 0));
         Inn inn = new Inn(items);
 
@@ -66,7 +66,7 @@ public class RemyInnTest {
     public void brie_quality_increases_with_time() {
     	//Given
         int startQuality = 20;
-        Item brie = AgedBrie.anAgedBrie(10, startQuality);
+        Item brie = new AgedBrie(10, startQuality);
 //        Item brie = new Item("Aged Brie", 10, startQuality);
         Inn inn = new Inn(asList(brie));
 
@@ -85,7 +85,7 @@ public class RemyInnTest {
         items.add(new Item("+5 Dexterity Vest", 10, maxQuality));
         items.add(new Item("Aged Brie", 2, maxQuality));
         items.add(new Item("Elixir of the Mongoose", 5, maxQuality));
-        items.add(BackstagePass.aBackstagePass(15, maxQuality));
+        items.add((Item) new BackstagePass(15, maxQuality));
         items.add(new Item("Conjured Mana Cake", 3, maxQuality));
         items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 50));
         Inn inn = new Inn(items);
@@ -104,7 +104,7 @@ public class RemyInnTest {
     public void sulfuras_never_decreases_in_quality() {
     	// Given
         int startQuality = 40;
-        Item sulfuras = Sulfuras.aSulfuras(startQuality, 0);
+        Item sulfuras = new Sulfuras(0, startQuality);
         Inn inn = new Inn(asList(sulfuras));
 
         // When
@@ -119,7 +119,7 @@ public class RemyInnTest {
     public void sulfuras_never_has_to_be_sold() {
     	// Given
     	int startSellIn = 10;
-      Item sulfuras = Sulfuras.aSulfuras(0, startSellIn);
+      Item sulfuras = new Sulfuras(startSellIn, 0);
 
     	Inn inn = new Inn(asList(sulfuras));
 
@@ -141,7 +141,7 @@ public class RemyInnTest {
     	// Given
         int startQuality = 20;
         int sellIn = 10;
-        Item backstage = BackstagePass.aBackstagePass(sellIn, startQuality);
+        Item backstage = new BackstagePass(sellIn, startQuality);
         Inn inn = new Inn(asList(backstage));
 
 
@@ -162,7 +162,7 @@ public class RemyInnTest {
     	// Given
     	int startQuality = 20;
     	int sellIn = 5;
-        Item backstage = BackstagePass.aBackstagePass(sellIn, startQuality);
+        Item backstage = new BackstagePass(sellIn, startQuality);
         Inn inn = new Inn(asList(backstage));
 
         // Then
@@ -184,7 +184,7 @@ public class RemyInnTest {
        	// Given
     	int startQuality = 20;
     	int sellIn = 15;
-        Item backstage = BackstagePass.aBackstagePass(sellIn, startQuality);
+        Item backstage = new BackstagePass(sellIn, startQuality);
         Inn inn = new Inn(asList(backstage));
 
         // Then
@@ -203,7 +203,7 @@ public class RemyInnTest {
     	// Given
         int startQuality = 20;
         int sellIn = 0;
-        Item sulfuras = BackstagePass.aBackstagePass(sellIn, startQuality);
+        Item sulfuras = new BackstagePass(sellIn, startQuality);
         Inn inn = new Inn(asList(sulfuras));
 
         // When

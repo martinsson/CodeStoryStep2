@@ -14,7 +14,4 @@ class AgedBrie extends Item {
          increaseQuality(1);
       }
    }
-   public static Item anAgedBrie(int sellIn, int quality) {
-      return new AgedBrie(sellIn, quality);
-   }
 }

@@ -24,10 +24,6 @@ class BackstagePass extends Item {
       qualityUpdater.update(this, sellIn);
    }
     
-   public static Item aBackstagePass(int sellIn, int quality) {
-      return new BackstagePass(sellIn, quality);
-   }
-
    static class QualityUpdaterChain {
 
       private final QualityUpdater[] qualityUpdaters;

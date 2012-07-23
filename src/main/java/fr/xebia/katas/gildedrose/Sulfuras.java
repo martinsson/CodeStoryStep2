@@ -8,9 +8,5 @@ class Sulfuras extends Item {
 
     @Override
    public void update() {}
-
-    public static Item aSulfuras(int startQuality, int sellIn) {
-        return new Sulfuras(sellIn, startQuality);
-    }
     
 }
