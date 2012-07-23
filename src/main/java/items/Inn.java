@@ -1,6 +1,7 @@
 package items;
 
 
+
 import java.util.List;
 
 public class Inn {

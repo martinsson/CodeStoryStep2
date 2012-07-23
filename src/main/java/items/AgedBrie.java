@@ -1,21 +1,15 @@
 package items;
 
-import static quality.updaters.QualityIncreaser.NO_BORDER;
 import quality.updaters.QualityIncreaser;
 import quality.updaters.QualityUpdaterChain;
 
 public class AgedBrie extends Item {
 
-   private QualityUpdaterChain qualityUpdater;
    public AgedBrie(int sellIn, int quality) {
-      super(sellIn, quality);
+      super(0, quality);
       qualityUpdater = new QualityUpdaterChain(sellIn, 
                                       new QualityIncreaser(2, 0), 
-                                      new QualityIncreaser(1, NO_BORDER));
+                                      new QualityIncreaser(1));
       
-   }
-   @Override
-   public void update() {
-      qualityUpdater.update(this);
    }
 }

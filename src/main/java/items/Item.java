@@ -1,23 +1,24 @@
 package items;
 
 import quality.QualityStore;
+import quality.updaters.QualityDecreaser;
+import quality.updaters.QualityUpdaterChain;
 
 public class Item implements QualityStore {
    protected int sellIn;
    protected int quality;
+   protected QualityUpdaterChain qualityUpdater;
 
    public Item(int sellIn, int quality) {
       this.quality = quality;
       this.sellIn = sellIn;
+      qualityUpdater = new QualityUpdaterChain(sellIn, 
+            new QualityDecreaser(2, 0), 
+            new QualityDecreaser(1));
    }
    public void update() {
-      sellIn--;
-      if (getSellIn() < 0) {
-         decreaseQuality(2);
-      } else {
-         decreaseQuality(1);
-      }
-}
+      qualityUpdater.update(this);
+   }
 
    public void increaseQuality(int amount) {
       quality +=amount;

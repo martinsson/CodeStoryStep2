@@ -5,11 +5,11 @@ import static org.fest.assertions.Assertions.assertThat;
 
 import items.AgedBrie;
 import items.BackstagePass;
-import items.Inn;
 import items.Item;
 import items.Sulfuras;
 
 import java.util.ArrayList;
+
 
 import org.junit.Test;
 

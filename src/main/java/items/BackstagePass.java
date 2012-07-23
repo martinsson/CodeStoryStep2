@@ -8,7 +8,6 @@ import quality.updaters.QualityUpdaterChain;
 public class BackstagePass extends Item {
 
    private static final int NOT_USED = 0;
-   QualityUpdaterChain qualityUpdater;
    
    public BackstagePass(int sellIn, int quality) {
       super(NOT_USED, quality);
@@ -21,8 +20,4 @@ public class BackstagePass extends Item {
             new DoNothingUpdater());
    }
    
-   @Override
-   public void update() {
-      qualityUpdater.update(this);
-   }
 }

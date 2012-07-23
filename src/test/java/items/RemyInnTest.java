@@ -5,7 +5,6 @@ import static org.fest.assertions.Assertions.assertThat;
 
 import items.AgedBrie;
 import items.BackstagePass;
-import items.Inn;
 import items.Item;
 import items.Sulfuras;
 
@@ -14,6 +13,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
 
 import org.junit.Before;
 import org.junit.Ignore;
