@@ -1,6 +1,8 @@
-package items;
+package main;
 
 
+
+import items.Item;
 
 import java.util.List;
 

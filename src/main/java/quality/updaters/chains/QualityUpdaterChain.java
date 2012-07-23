@@ -1,4 +1,4 @@
-package quality.updaters;
+package quality.updaters.chains;
 
 
 import java.util.Iterator;
@@ -7,6 +7,7 @@ import org.hamcrest.internal.ArrayIterator;
 
 import quality.QualityStore;
 import quality.QualityUpdater;
+import quality.UpdaterChain;
 
 
 public class QualityUpdaterChain implements UpdaterChain {

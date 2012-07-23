@@ -1,7 +1,7 @@
-package items;
+package quality.updaters.chains;
 
 import quality.QualityStore;
-import quality.updaters.UpdaterChain;
+import quality.UpdaterChain;
 
 public class VoidUpdaterChain implements UpdaterChain {
 

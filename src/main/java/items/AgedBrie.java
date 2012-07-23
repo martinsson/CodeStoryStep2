@@ -1,7 +1,7 @@
 package items;
 
 import quality.updaters.QualityIncreaser;
-import quality.updaters.QualityUpdaterChain;
+import quality.updaters.chains.QualityUpdaterChain;
 
 public class AgedBrie extends Item {
 

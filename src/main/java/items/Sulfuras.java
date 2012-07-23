@@ -1,5 +1,7 @@
 package items;
 
+import quality.updaters.chains.VoidUpdaterChain;
+
 
 public class Sulfuras extends Item {
 

@@ -1,6 +1,5 @@
-package quality.updaters;
+package quality;
 
-import quality.QualityStore;
 
 public interface UpdaterChain {
 

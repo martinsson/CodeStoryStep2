@@ -9,11 +9,12 @@ import items.Item;
 import items.Sulfuras;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+
+import main.Inn;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -54,7 +55,7 @@ public class RemyInnTest {
         items.add(new Item(2, 0));
         items.add(new Item(5, 0));
         items.add(new Item(0, 0));
-        items.add((Item) new BackstagePass(15, 0));
+        items.add(new BackstagePass(15, 0));
         items.add(new Item(3, 0));
         Inn inn = new Inn(items);
 
@@ -91,7 +92,7 @@ public class RemyInnTest {
         items.add(new Item(10, maxQuality));
         items.add(new Item(2, maxQuality));
         items.add(new Item(5, maxQuality));
-        items.add((Item) new BackstagePass(15, maxQuality));
+        items.add(new BackstagePass(15, maxQuality));
         items.add(new Item(3, maxQuality));
         items.add(new Item(0, 50));
         Inn inn = new Inn(items);

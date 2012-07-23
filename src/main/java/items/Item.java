@@ -1,9 +1,9 @@
 package items;
 
 import quality.QualityStore;
+import quality.UpdaterChain;
 import quality.updaters.QualityDecreaser;
-import quality.updaters.QualityUpdaterChain;
-import quality.updaters.UpdaterChain;
+import quality.updaters.chains.QualityUpdaterChain;
 
 public class Item implements QualityStore {
    private int quality;

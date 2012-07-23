@@ -11,6 +11,8 @@ import items.Sulfuras;
 import java.util.ArrayList;
 
 
+import main.Inn;
+
 import org.junit.Test;
 
 public class InnTest {
