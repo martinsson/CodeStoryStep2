@@ -9,9 +9,9 @@ class AgedBrie extends Item {
    public void update() {
       sellIn--;
       if (getSellIn() < 0) {
-         addQuality(2);
+         increaseQuality(2);
       } else {
-         addQuality(1);
+         increaseQuality(1);
       }
    }
    public static Item anAgedBrie(int sellIn, int quality) {

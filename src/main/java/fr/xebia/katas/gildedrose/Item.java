@@ -11,19 +11,22 @@ public class Item {
    public void update() {
       sellIn--;
       if (getSellIn() < 0) {
-         addQuality(-2);
+         decreaseQuality(2);
       } else {
-         addQuality(-1);
+         decreaseQuality(1);
       }
 }
 
-   protected void addQuality(int amount) {
+   protected void increaseQuality(int amount) {
       quality +=amount;
       if (getQuality() > 50)
          quality = 50;
+   }
+   
+   protected void decreaseQuality(int amount) {
+      quality -=amount;
       if (getQuality() < 0) 
          quality = 0;
-      
    }
    
    protected void setSellIn(int sellIn) {

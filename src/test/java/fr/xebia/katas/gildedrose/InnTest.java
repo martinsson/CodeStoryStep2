@@ -14,13 +14,21 @@ import static org.junit.Assert.*;
 public class InnTest {
 
     @Test
-    public void qualityDegradesTwiceAsFastAfterTheDateHasPassed() throws Exception {
+    public void qualityByOne() throws Exception {
         int startquality = 10;
         Item freshItem = new Item("toto", 2, startquality);
-        Item passedItem = new Item("toto", 0, startquality);
 
-        new Inn(asList(freshItem, passedItem)).updateQuality();
-        assertThat(startquality - freshItem.getQuality()).isEqualTo((startquality - passedItem.getQuality()) / 2);
+        new Inn(asList(freshItem)).updateQuality();
+        assertThat(freshItem.getQuality()).isEqualTo(startquality-1);
+    }
+    @Test
+    public void qualityDegradesTwiceAsFastAfterTheDateHasPassed() throws Exception {
+       int startquality = 10;
+       Item freshItem = new Item("toto", 2, startquality);
+       Item passedItem = new Item("toto", 0, startquality);
+       
+       new Inn(asList(freshItem, passedItem)).updateQuality();
+       assertThat(startquality - freshItem.getQuality()).isEqualTo((startquality - passedItem.getQuality()) / 2);
     }
     @Test
     public void quality_is_never_negative() throws Exception {

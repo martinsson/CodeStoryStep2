@@ -11,11 +11,11 @@ class BackstagePass extends Item {
       if (getSellIn() < 1) {
          setQuality(0);
       } else if (getSellIn() < 6) {
-            addQuality(3);
+            increaseQuality(3);
       } else if (getSellIn() < 11) {
-            addQuality(2);
+            increaseQuality(2);
       } else if (getSellIn() < 16) {
-            addQuality(1);
+            increaseQuality(1);
       }
       sellIn--;
    }
