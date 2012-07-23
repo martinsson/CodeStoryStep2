@@ -6,17 +6,22 @@ import quality.updaters.QualityUpdaterChain;
 import quality.updaters.UpdaterChain;
 
 public class Item implements QualityStore {
-   protected int quality;
-   protected UpdaterChain qualityUpdater;
+   private int quality;
+   private UpdaterChain updaterChain;
 
    public Item(int sellIn, int quality) {
+      this(new QualityUpdaterChain(sellIn, 
+               new QualityDecreaser(2, 0), 
+               new QualityDecreaser(1)), 
+           quality);
+   }
+   
+   public Item(UpdaterChain updaterChain, int quality) {
+      this.updaterChain = updaterChain;
       this.quality = quality;
-      qualityUpdater = new QualityUpdaterChain(sellIn, 
-            new QualityDecreaser(2, 0), 
-            new QualityDecreaser(1));
    }
    public void update() {
-      qualityUpdater.update(this);
+      updaterChain.update(this);
    }
 
    public void increaseQuality(int amount) {

@@ -39,7 +39,7 @@ public class InnTest {
         items.add(new Item(10, 0));
         items.add((Item) new AgedBrie(2, 0));
         items.add(new Item(5, 0));
-        items.add((Item) new Sulfuras(0, 0));
+        items.add((Item) new Sulfuras(0));
         items.add((Item) new BackstagePass(15, 0));
         items.add(new Item(3, 0));
         Inn inn = new Inn(items);
@@ -94,7 +94,7 @@ public class InnTest {
     @Test
     public void sulfuras_never_decreases_in_quality() throws Exception {
         int startQuality = 80;
-        Item sulfuras = new Sulfuras(0, startQuality);
+        Item sulfuras = new Sulfuras(startQuality);
         Inn inn = new Inn(asList(sulfuras));
         inn.updateQuality();
         inn.updateQuality();

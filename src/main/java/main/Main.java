@@ -17,7 +17,7 @@ public class Main {
       items.add(new Item(10, 20));
       items.add(new AgedBrie(2, 0));
       items.add(new Item(5, 7));
-      items.add(new Sulfuras(80, 0));
+      items.add(new Sulfuras(0));
       items.add(new BackstagePass(15, 20));
       items.add(new Item(3, 6));
       for (Item currentItem : items) {

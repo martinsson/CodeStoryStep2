@@ -110,7 +110,7 @@ public class RemyInnTest {
     public void sulfuras_never_decreases_in_quality() {
     	// Given
         int startQuality = 40;
-        Item sulfuras = new Sulfuras(0, startQuality);
+        Item sulfuras = new Sulfuras(startQuality);
         Inn inn = new Inn(asList(sulfuras));
 
         // When
@@ -126,7 +126,7 @@ public class RemyInnTest {
     public void sulfuras_never_has_to_be_sold() {
     	// Given
     	int startSellIn = 10;
-      Item sulfuras = new Sulfuras(startSellIn, 0);
+      Item sulfuras = new Sulfuras(0);
 
     	Inn inn = new Inn(asList(sulfuras));
 

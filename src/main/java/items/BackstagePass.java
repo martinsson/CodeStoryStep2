@@ -7,17 +7,15 @@ import quality.updaters.QualityUpdaterChain;
 
 public class BackstagePass extends Item {
 
-   private static final int NOT_USED = 0;
-   
    public BackstagePass(int sellIn, int quality) {
-      super(NOT_USED, quality);
-      qualityUpdater = new QualityUpdaterChain(
-            sellIn,
-            new QualityRemover(0, 0),
-            new QualityIncreaser(3, 5),
-            new QualityIncreaser(2, 10),
-            new QualityIncreaser(1, 15), 
-            new DoNothingUpdater());
+      super(new QualityUpdaterChain(
+               sellIn,
+               new QualityRemover(0, 0),
+               new QualityIncreaser(3, 5),
+               new QualityIncreaser(2, 10),
+               new QualityIncreaser(1, 15), 
+               new DoNothingUpdater()), 
+           quality);
    }
    
 }
