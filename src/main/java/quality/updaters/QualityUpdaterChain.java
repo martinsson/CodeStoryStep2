@@ -1,10 +1,13 @@
-package fr.xebia.katas.gildedrose.qualityUpdate;
+package quality.updaters;
+
 
 import java.util.Iterator;
 
 import org.hamcrest.internal.ArrayIterator;
 
-import fr.xebia.katas.gildedrose.QualityStore;
+import quality.QualityStore;
+import quality.QualityUpdater;
+
 
 public class QualityUpdaterChain {
 

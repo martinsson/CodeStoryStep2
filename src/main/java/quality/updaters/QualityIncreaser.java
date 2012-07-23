@@ -1,6 +1,6 @@
-package fr.xebia.katas.gildedrose.qualityUpdate;
+package quality.updaters;
 
-import fr.xebia.katas.gildedrose.QualityStore;
+import quality.QualityStore;
 
 
 public class QualityIncreaser extends ResponsibilityCheckingUpdater {

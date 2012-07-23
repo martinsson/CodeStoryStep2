@@ -1,6 +1,6 @@
-package fr.xebia.katas.gildedrose;
+package items;
 
-class Sulfuras extends Item {
+public class Sulfuras extends Item {
 
     public Sulfuras(int sellIn, int quality) {
         super(sellIn, quality);

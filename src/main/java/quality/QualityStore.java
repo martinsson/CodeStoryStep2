@@ -1,4 +1,4 @@
-package fr.xebia.katas.gildedrose;
+package quality;
 
 public interface QualityStore {
 

@@ -1,12 +1,12 @@
-package fr.xebia.katas.gildedrose;
+package items;
 
 
 
-import fr.xebia.katas.gildedrose.qualityUpdate.DoNothingUpdater;
-import fr.xebia.katas.gildedrose.qualityUpdate.QualityIncreaser;
-import fr.xebia.katas.gildedrose.qualityUpdate.QualityRemover;
-import fr.xebia.katas.gildedrose.qualityUpdate.QualityUpdaterChain;
-class BackstagePass extends Item {
+import quality.updaters.DoNothingUpdater;
+import quality.updaters.QualityIncreaser;
+import quality.updaters.QualityRemover;
+import quality.updaters.QualityUpdaterChain;
+public class BackstagePass extends Item {
 
    private static final int NOT_USED = 0;
    QualityUpdaterChain qualityUpdater;

@@ -1,6 +1,7 @@
-package fr.xebia.katas.gildedrose.qualityUpdate;
+package quality.updaters;
 
-import fr.xebia.katas.gildedrose.QualityStore;
+import quality.QualityStore;
+import quality.QualityUpdater;
 
 public class DoNothingUpdater implements QualityUpdater {
 

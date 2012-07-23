@@ -1,6 +1,6 @@
-package fr.xebia.katas.gildedrose;
+package items;
 
-class AgedBrie extends Item {
+public class AgedBrie extends Item {
 
    public AgedBrie(int sellIn, int quality) {
       super(sellIn, quality);

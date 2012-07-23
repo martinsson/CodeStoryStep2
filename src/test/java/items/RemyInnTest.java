@@ -1,7 +1,13 @@
-package fr.xebia.katas.gildedrose;
+package items;
 
 import static java.util.Arrays.asList;
 import static org.fest.assertions.Assertions.assertThat;
+
+import items.AgedBrie;
+import items.BackstagePass;
+import items.Inn;
+import items.Item;
+import items.Sulfuras;
 
 import java.util.ArrayList;
 import java.util.Arrays;

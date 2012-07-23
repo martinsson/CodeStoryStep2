@@ -1,4 +1,6 @@
-package fr.xebia.katas.gildedrose;
+package items;
+
+import quality.QualityStore;
 
 public class Item implements QualityStore {
    protected int sellIn;

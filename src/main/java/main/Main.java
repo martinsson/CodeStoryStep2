@@ -1,4 +1,9 @@
-package fr.xebia.katas.gildedrose;
+package main;
+import items.AgedBrie;
+import items.BackstagePass;
+import items.Item;
+import items.Sulfuras;
+
 import java.util.ArrayList;
 import java.util.List;
 
