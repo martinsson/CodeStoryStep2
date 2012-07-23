@@ -1,11 +1,10 @@
 package items;
 
-
-
 import quality.updaters.DoNothingUpdater;
 import quality.updaters.QualityIncreaser;
 import quality.updaters.QualityRemover;
 import quality.updaters.QualityUpdaterChain;
+
 public class BackstagePass extends Item {
 
    private static final int NOT_USED = 0;
