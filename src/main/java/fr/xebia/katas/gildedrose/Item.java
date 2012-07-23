@@ -1,6 +1,6 @@
 package fr.xebia.katas.gildedrose;
 
-public class Item {
+public class Item implements QualityStore {
    protected int sellIn;
    protected int quality;
 
@@ -23,7 +23,7 @@ public class Item {
          quality = 50;
    }
    
-   protected void decreaseQuality(int amount) {
+   public void decreaseQuality(int amount) {
       quality -=amount;
       if (getQuality() < 0) 
          quality = 0;

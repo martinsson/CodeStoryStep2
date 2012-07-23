@@ -3,13 +3,16 @@ package fr.xebia.katas.gildedrose;
 import java.util.Iterator;
 
 import org.hamcrest.internal.ArrayIterator;
-import fr.xebia.katas.gildedrose.qualityUpdate.*;
+
+import fr.xebia.katas.gildedrose.qualityUpdate.QualityIncreaser;
+import fr.xebia.katas.gildedrose.qualityUpdate.QualityRemover;
+import fr.xebia.katas.gildedrose.qualityUpdate.QualityUpdater;
 class BackstagePass extends Item {
 
    public class DoNothingUpdater implements QualityUpdater {
 
       @Override
-      public boolean update(Item item, int sellIn) {
+      public boolean update(QualityStore item, int sellIn) {
          return true;
       }
 
@@ -45,7 +48,7 @@ class BackstagePass extends Item {
          this.qualityUpdaters = qualitySetters;
       }
 
-      public void update(Item item) {
+      public void update(QualityStore item) {
          sellIn--;
          Iterator<Object> iterator = new ArrayIterator(qualityUpdaters);
          boolean keepOn = true;

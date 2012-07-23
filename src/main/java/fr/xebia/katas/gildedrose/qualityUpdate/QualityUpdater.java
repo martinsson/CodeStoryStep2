@@ -1,7 +1,7 @@
 package fr.xebia.katas.gildedrose.qualityUpdate;
 
-import fr.xebia.katas.gildedrose.Item;
+import fr.xebia.katas.gildedrose.QualityStore;
 
 public interface QualityUpdater {
-   boolean update(Item item, int sellIn);
+   boolean update(QualityStore item, int sellIn);
 }

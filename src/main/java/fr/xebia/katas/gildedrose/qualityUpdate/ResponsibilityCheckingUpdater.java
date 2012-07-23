@@ -1,6 +1,6 @@
 package fr.xebia.katas.gildedrose.qualityUpdate;
 
-import fr.xebia.katas.gildedrose.Item;
+import fr.xebia.katas.gildedrose.QualityStore;
 
 public abstract class ResponsibilityCheckingUpdater implements QualityUpdater {
 
@@ -11,13 +11,13 @@ public abstract class ResponsibilityCheckingUpdater implements QualityUpdater {
    }
 
    @Override
-   public boolean update(Item item, int sellIn) {
+   public boolean update(QualityStore item, int sellIn) {
       if (sellIn >= border) 
          return false;
       doUpdate(item);
       return true;
    }
 
-   protected abstract void doUpdate(Item item);
+   protected abstract void doUpdate(QualityStore item);
 
 }
