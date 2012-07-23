@@ -7,6 +7,13 @@ import org.hamcrest.internal.ArrayIterator;
 class BackstagePass extends Item {
 
    private static final int NOBORDER = Integer.MAX_VALUE;
+   QualityUpdaterChain qualityUpdater = new QualityUpdaterChain(
+         new QualitySetter(0, 0),
+         new QualityIncreaser(3, 5),
+         new QualityIncreaser(2, 10),
+         new QualityIncreaser(1, 15),
+         new QualityIncreaser(0, NOBORDER));
+   
    public BackstagePass(int sellIn, int quality) {
       super("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
    }
@@ -14,26 +21,7 @@ class BackstagePass extends Item {
    @Override
    public void update() {
       sellIn--;
-      QualityUpdaterChain qualityUpdater2 = new QualityUpdaterChain(
-            new QualitySetter(0, 0),
-            new QualityIncreaser(3, 5),
-            new QualityIncreaser(2, 10),
-            new QualityIncreaser(1, 15),
-            new QualityIncreaser(0, NOBORDER));
-      qualityUpdater2.update(this, sellIn);
-//      QualityUpdater qualityUpdater = null;
-//      if (getSellIn() < 0) {
-//         qualityUpdater = new QualitySetter(0, 0);
-//      } else if (getSellIn() < 5) {
-//         qualityUpdater = new QualityIncreaser(3, 5);
-//      } else if (getSellIn() < 10) {
-//         qualityUpdater = new QualityIncreaser(2, 10);
-//      } else if (getSellIn() < 15) {
-//         qualityUpdater = new QualityIncreaser(1, 15);
-//      } else {
-//         qualityUpdater = new QualityIncreaser(0, NOBORDER);
-//      }
-//      qualityUpdater.update(this, sellIn);
+      qualityUpdater.update(this, sellIn);
    }
     
    public static Item aBackstagePass(int sellIn, int quality) {
@@ -82,18 +70,18 @@ class BackstagePass extends Item {
    }
    static class QualityUpdaterChain {
 
-      private final QualityUpdater[] qualitySetters;
+      private final QualityUpdater[] qualityUpdaters;
 
       public QualityUpdaterChain(QualityUpdater...qualitySetters) {
-         this.qualitySetters = qualitySetters;
+         this.qualityUpdaters = qualitySetters;
       }
 
       public void update(Item item, int sellIn) {
-         Iterator<Object> iterator = new ArrayIterator(qualitySetters);
-         boolean loop = true;
-         while (iterator.hasNext() && loop) {
+         Iterator<Object> iterator = new ArrayIterator(qualityUpdaters);
+         boolean keepOn = true;
+         while (iterator.hasNext() && keepOn) {
             QualityUpdater updater = (QualityUpdater) iterator.next();
-            loop = !updater.update(item, sellIn);
+            keepOn = !updater.update(item, sellIn);
          }
          
       }
