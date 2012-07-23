@@ -27,8 +27,8 @@ public class RemyInnTest {
     public void quality_degrades_twice_as_fast_after_the_sell_date_has_passed() {
     	// Given
     	int startquality = 10;
-        Item freshItem = new Item("freshItem", 2, startquality);
-        Item passedItem = new Item("passedItem", 0, startquality);
+        Item freshItem = new Item(2, startquality);
+        Item passedItem = new Item(0, startquality);
         Inn inn = new Inn(asList(freshItem, passedItem));
 
         // When
@@ -44,12 +44,12 @@ public class RemyInnTest {
     public void quality_is_never_negative() {
         // Given
         ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item("+5 Dexterity Vest", 10, 0));
-        items.add(new Item("Aged Brie", 2, 0));
-        items.add(new Item("Elixir of the Mongoose", 5, 0));
-        items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 0));
+        items.add(new Item(10, 0));
+        items.add(new Item(2, 0));
+        items.add(new Item(5, 0));
+        items.add(new Item(0, 0));
         items.add((Item) new BackstagePass(15, 0));
-        items.add(new Item("Conjured Mana Cake", 3, 0));
+        items.add(new Item(3, 0));
         Inn inn = new Inn(items);
 
         // When
@@ -82,12 +82,12 @@ public class RemyInnTest {
     	// Given
         ArrayList<Item> items = new ArrayList<Item>();
         int maxQuality = 50;
-        items.add(new Item("+5 Dexterity Vest", 10, maxQuality));
-        items.add(new Item("Aged Brie", 2, maxQuality));
-        items.add(new Item("Elixir of the Mongoose", 5, maxQuality));
+        items.add(new Item(10, maxQuality));
+        items.add(new Item(2, maxQuality));
+        items.add(new Item(5, maxQuality));
         items.add((Item) new BackstagePass(15, maxQuality));
-        items.add(new Item("Conjured Mana Cake", 3, maxQuality));
-        items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 50));
+        items.add(new Item(3, maxQuality));
+        items.add(new Item(0, 50));
         Inn inn = new Inn(items);
 
         // When
@@ -219,7 +219,7 @@ public class RemyInnTest {
     public void conjured_degrade_in_quality_twice_as_fast_as_normal_items() {
     	// Given
     	int startQuality = 6;
-    	Item conjured = new Item("Conjured Mana Cake", 3, startQuality);
+    	Item conjured = new Item(3, startQuality);
     	Inn inn = new Inn(asList(conjured));
 
     	// When

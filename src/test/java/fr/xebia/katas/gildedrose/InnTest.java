@@ -12,7 +12,7 @@ public class InnTest {
     @Test
     public void qualityIncreasesByOne() throws Exception {
         int startquality = 10;
-        Item freshItem = new Item("toto", 2, startquality);
+        Item freshItem = new Item(2, startquality);
 
         new Inn(asList(freshItem)).updateQuality();
         assertThat(freshItem.getQuality()).isEqualTo(startquality-1);
@@ -20,8 +20,8 @@ public class InnTest {
     @Test
     public void qualityDegradesTwiceAsFastAfterTheDateHasPassed() throws Exception {
        int startquality = 10;
-       Item freshItem = new Item("toto", 2, startquality);
-       Item passedItem = new Item("toto", 0, startquality);
+       Item freshItem = new Item(2, startquality);
+       Item passedItem = new Item(0, startquality);
        
        new Inn(asList(freshItem, passedItem)).updateQuality();
        assertThat(startquality - freshItem.getQuality()).isEqualTo((startquality - passedItem.getQuality()) / 2);
@@ -30,12 +30,12 @@ public class InnTest {
     public void quality_is_never_negative() throws Exception {
         
         ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item("+5 Dexterity Vest", 10, 0));
+        items.add(new Item(10, 0));
         items.add((Item) new AgedBrie(2, 0));
-        items.add(new Item("Elixir of the Mongoose", 5, 0));
+        items.add(new Item(5, 0));
         items.add((Item) new Sulfuras(0, 0));
         items.add((Item) new BackstagePass(15, 0));
-        items.add(new Item("Conjured Mana Cake", 3, 0));
+        items.add(new Item(3, 0));
         Inn inn = new Inn(items);
         inn.updateQuality();
         inn.updateQuality();
@@ -71,11 +71,11 @@ public class InnTest {
     public void qualityNeverExceeds50() throws Exception {
         ArrayList<Item> items = new ArrayList<Item>();
         int maxQuality = 50;
-        items.add(new Item("+5 Dexterity Vest", 50, maxQuality));
+        items.add(new Item(50, maxQuality));
         items.add((Item) new AgedBrie(50, maxQuality));
-        items.add(new Item("Elixir of the Mongoose", 50, maxQuality));
+        items.add(new Item(50, maxQuality));
         items.add((Item) new BackstagePass(50, maxQuality));
-        items.add(new Item("Conjured Mana Cake", 50, maxQuality));
+        items.add(new Item(50, maxQuality));
         Inn inn = new Inn(items);
         inn.updateQuality();
         inn.updateQuality();

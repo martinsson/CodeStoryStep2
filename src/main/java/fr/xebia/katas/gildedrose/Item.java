@@ -4,7 +4,7 @@ public class Item {
    protected int sellIn;
    protected int quality;
 
-   public Item(String name, int sellIn, int quality) {
+   public Item(int sellIn, int quality) {
       this.quality = quality;
       this.sellIn = sellIn;
    }

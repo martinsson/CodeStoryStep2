@@ -3,7 +3,7 @@ package fr.xebia.katas.gildedrose;
 class AgedBrie extends Item {
 
    public AgedBrie(int sellIn, int quality) {
-      super("Aged Brie", sellIn, quality);
+      super(sellIn, quality);
    }
    @Override
    public void update() {

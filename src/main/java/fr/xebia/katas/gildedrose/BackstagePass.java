@@ -6,36 +6,47 @@ import org.hamcrest.internal.ArrayIterator;
 import fr.xebia.katas.gildedrose.qualityUpdate.*;
 class BackstagePass extends Item {
 
-   private static final int NOBORDER = Integer.MAX_VALUE;
-   QualityUpdaterChain qualityUpdater = new QualityUpdaterChain(
-         new QualitySetter(0, 0),
-         new QualityIncreaser(3, 5),
-         new QualityIncreaser(2, 10),
-         new QualityIncreaser(1, 15),
-         new QualityIncreaser(0, NOBORDER));
+   public class DoNothingUpdater implements QualityUpdater {
+
+      @Override
+      public boolean update(Item item, int sellIn) {
+         return true;
+      }
+
+   }
+
+   private static final int NOT_USED = 0;
+   QualityUpdaterChain qualityUpdater;
    
    public BackstagePass(int sellIn, int quality) {
-      super("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
+      super(NOT_USED, quality);
+      qualityUpdater = new QualityUpdaterChain(
+            sellIn,
+            new QualityRemover(0, 0),
+            new QualityIncreaser(3, 5),
+            new QualityIncreaser(2, 10),
+            new QualityIncreaser(1, 15), 
+            new DoNothingUpdater());
    }
    
    @Override
    public void update() {
-      sellIn--;
-      qualityUpdater.update(this, sellIn);
+      qualityUpdater.update(this);
    }
-   
-   
    
     
    static class QualityUpdaterChain {
 
       private final QualityUpdater[] qualityUpdaters;
+      private int sellIn;
 
-      public QualityUpdaterChain(QualityUpdater...qualitySetters) {
+      public QualityUpdaterChain(int sellIn, QualityUpdater...qualitySetters) {
+         this.sellIn = sellIn;
          this.qualityUpdaters = qualitySetters;
       }
 
-      public void update(Item item, int sellIn) {
+      public void update(Item item) {
+         sellIn--;
          Iterator<Object> iterator = new ArrayIterator(qualityUpdaters);
          boolean keepOn = true;
          while (iterator.hasNext() && keepOn) {
