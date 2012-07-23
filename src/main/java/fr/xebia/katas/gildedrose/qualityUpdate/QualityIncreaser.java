@@ -1,7 +1,9 @@
-package fr.xebia.katas.gildedrose;
+package fr.xebia.katas.gildedrose.qualityUpdate;
+
+import fr.xebia.katas.gildedrose.Item;
 
 
-class QualityIncreaser extends ResponsibilityCheckingUpdater {
+public class QualityIncreaser extends ResponsibilityCheckingUpdater {
 
    private final int amount;
 

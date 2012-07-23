@@ -17,7 +17,7 @@ public class Item {
       }
 }
 
-   protected void increaseQuality(int amount) {
+   public void increaseQuality(int amount) {
       quality +=amount;
       if (getQuality() > 50)
          quality = 50;
@@ -29,12 +29,8 @@ public class Item {
          quality = 0;
    }
    
-   protected void setSellIn(int sellIn) {
-      this.sellIn = sellIn;
-   }
-   
-   protected void setQuality(int quality) {
-      this.quality = quality;
+   public void removeAllQuality() {
+      this.quality = 0;
    }
    
    protected int getSellIn() {

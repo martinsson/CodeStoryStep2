@@ -10,7 +10,7 @@ import org.junit.Test;
 public class InnTest {
 
     @Test
-    public void qualityByOne() throws Exception {
+    public void qualityIncreasesByOne() throws Exception {
         int startquality = 10;
         Item freshItem = new Item("toto", 2, startquality);
 

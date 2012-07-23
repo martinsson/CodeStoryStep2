@@ -1,4 +1,6 @@
-package fr.xebia.katas.gildedrose;
+package fr.xebia.katas.gildedrose.qualityUpdate;
+
+import fr.xebia.katas.gildedrose.Item;
 
 public abstract class ResponsibilityCheckingUpdater implements QualityUpdater {
 

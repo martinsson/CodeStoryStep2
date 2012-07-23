@@ -1,7 +1,9 @@
-package fr.xebia.katas.gildedrose;
+package fr.xebia.katas.gildedrose.qualityUpdate;
+
+import fr.xebia.katas.gildedrose.Item;
 
 
-class QualitySetter extends ResponsibilityCheckingUpdater implements QualityUpdater {
+public class QualitySetter extends ResponsibilityCheckingUpdater implements QualityUpdater {
 
    final int destinationQuality;
    public QualitySetter(int destinationQuality, int border) {
@@ -10,7 +12,7 @@ class QualitySetter extends ResponsibilityCheckingUpdater implements QualityUpda
    }
    @Override
    protected void doUpdate(Item item) {
-      item.setQuality(destinationQuality);
+      item.removeAllQuality();
       
    }
 }

@@ -3,7 +3,7 @@ package fr.xebia.katas.gildedrose;
 import java.util.Iterator;
 
 import org.hamcrest.internal.ArrayIterator;
-
+import fr.xebia.katas.gildedrose.qualityUpdate.*;
 class BackstagePass extends Item {
 
    private static final int NOBORDER = Integer.MAX_VALUE;
@@ -23,6 +23,9 @@ class BackstagePass extends Item {
       sellIn--;
       qualityUpdater.update(this, sellIn);
    }
+   
+   
+   
     
    static class QualityUpdaterChain {
 
