@@ -3,11 +3,12 @@ package items;
 import quality.QualityStore;
 import quality.updaters.QualityDecreaser;
 import quality.updaters.QualityUpdaterChain;
+import quality.updaters.UpdaterChain;
 
 public class Item implements QualityStore {
    protected int sellIn;
    protected int quality;
-   protected QualityUpdaterChain qualityUpdater;
+   protected UpdaterChain qualityUpdater;
 
    public Item(int sellIn, int quality) {
       this.quality = quality;

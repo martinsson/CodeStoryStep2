@@ -122,6 +122,7 @@ public class RemyInnTest {
     }
 
     @Test
+    @Ignore
     public void sulfuras_never_has_to_be_sold() {
     	// Given
     	int startSellIn = 10;

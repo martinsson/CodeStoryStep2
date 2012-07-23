@@ -9,7 +9,7 @@ import quality.QualityStore;
 import quality.QualityUpdater;
 
 
-public class QualityUpdaterChain {
+public class QualityUpdaterChain implements UpdaterChain {
 
    private final QualityUpdater[] qualityUpdaters;
    private int sellIn;
@@ -27,7 +27,5 @@ public class QualityUpdaterChain {
          QualityUpdater updater = (QualityUpdater) iterator.next();
          keepOn = !updater.update(item, sellIn);
       }
-      
    }
-   
 }

@@ -1,14 +1,13 @@
 package items;
 
-import quality.updaters.DoNothingUpdater;
-import quality.updaters.QualityUpdaterChain;
 
 public class Sulfuras extends Item {
 
    public Sulfuras(int sellIn, int quality) {
-        super(sellIn, quality);
-        qualityUpdater = new QualityUpdaterChain(sellIn, 
-              new DoNothingUpdater());
+      //TOOD sellIn has no meaning for Sulfras, it shouldnt be needed and 
+      // we shouldnt even be able to ask it for sellIn 
+        super(0, quality);
+        qualityUpdater = new VoidUpdaterChain();
     }
 
 }
