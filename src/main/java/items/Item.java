@@ -6,6 +6,8 @@ import quality.updaters.QualityDecreaser;
 import quality.updaters.chains.QualityUpdaterChain;
 
 public class Item implements QualityStore {
+   private static final int MIN_QUALITY = 0;
+   private static final int MAX_QUALITY = 50;
    private int quality;
    private UpdaterChain updaterChain;
 
@@ -26,21 +28,29 @@ public class Item implements QualityStore {
 
    public void increaseQuality(int amount) {
       quality +=amount;
-      if (getQuality() > 50)
-         quality = 50;
+      if (qualityIsToBig())
+         quality = MAX_QUALITY;
    }
-   
+
    public void decreaseQuality(int amount) {
       quality -=amount;
-      if (getQuality() < 0) 
-         quality = 0;
+      if (qualityIsTooLow()) 
+         quality = MIN_QUALITY;
+   }
+   
+   private boolean qualityIsToBig() {
+      return quality() > MAX_QUALITY;
+   }
+   
+   private boolean qualityIsTooLow() {
+      return quality() < MIN_QUALITY;
    }
    
    public void removeAllQuality() {
-      this.quality = 0;
+      this.quality = MIN_QUALITY;
    }
    
-   protected int getQuality() {
+   protected int quality() {
       return quality;
    }
    

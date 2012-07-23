@@ -23,7 +23,7 @@ public class InnTest {
         Item freshItem = new Item(2, startquality);
 
         new Inn(asList(freshItem)).updateQuality();
-        assertThat(freshItem.getQuality()).isEqualTo(startquality-1);
+        assertThat(freshItem.quality()).isEqualTo(startquality-1);
     }
     @Test
     public void qualityDegradesTwiceAsFastAfterTheDateHasPassed() throws Exception {
@@ -32,7 +32,7 @@ public class InnTest {
        Item passedItem = new Item(0, startquality);
        
        new Inn(asList(freshItem, passedItem)).updateQuality();
-       assertThat(startquality - freshItem.getQuality()).isEqualTo((startquality - passedItem.getQuality()) / 2);
+       assertThat(startquality - freshItem.quality()).isEqualTo((startquality - passedItem.quality()) / 2);
     }
     @Test
     public void quality_is_never_negative() throws Exception {
@@ -50,7 +50,7 @@ public class InnTest {
         inn.updateQuality();
         inn.updateQuality();
         for (Item item : items) {
-            assertThat(item.getQuality()).isGreaterThanOrEqualTo(0);
+            assertThat(item.quality()).isGreaterThanOrEqualTo(0);
         }
     }
     
@@ -59,7 +59,7 @@ public class InnTest {
         int startQuality = 20;
         Item brie = new AgedBrie(10, startQuality);
         new Inn(asList(brie)).updateQuality();
-        assertThat(brie.getQuality()).isEqualTo(startQuality+1);
+        assertThat(brie.quality()).isEqualTo(startQuality+1);
     }
    
    @Test
@@ -68,11 +68,11 @@ public class InnTest {
       Item brie = new AgedBrie(1, startQuality);
       Inn inn = new Inn(asList(brie));
       inn.updateQuality();
-      assertThat(brie.getQuality()).isEqualTo(startQuality+1);
+      assertThat(brie.quality()).isEqualTo(startQuality+1);
       inn.updateQuality();
-      assertThat(brie.getQuality()).isEqualTo(startQuality+3);
+      assertThat(brie.quality()).isEqualTo(startQuality+3);
       inn.updateQuality();
-      assertThat(brie.getQuality()).isEqualTo(startQuality+5);
+      assertThat(brie.quality()).isEqualTo(startQuality+5);
    }
    
     @Test
@@ -90,7 +90,7 @@ public class InnTest {
         inn.updateQuality();
         inn.updateQuality();
         for (Item item : items) {
-            assertThat(item.getQuality()).isLessThanOrEqualTo(maxQuality);
+            assertThat(item.quality()).isLessThanOrEqualTo(maxQuality);
         }
     }
     @Test
@@ -102,7 +102,7 @@ public class InnTest {
         inn.updateQuality();
         inn.updateQuality();
         inn.updateQuality();
-        assertThat(sulfuras.getQuality()).isEqualTo(startQuality);
+        assertThat(sulfuras.quality()).isEqualTo(startQuality);
     }
     @Test
     public void backstage_passes_increases_by2_from_day_10_to_6_before_the_concert() throws Exception {
@@ -114,7 +114,7 @@ public class InnTest {
         inn.updateQuality();
         inn.updateQuality();
         inn.updateQuality();
-        assertThat(sulfuras.getQuality()).isEqualTo(startQuality + 10);
+        assertThat(sulfuras.quality()).isEqualTo(startQuality + 10);
     }
     @Test
     public void backstage_passes_increases_by3_from_day_5_to_0_before_the_concert() throws Exception {
@@ -126,7 +126,7 @@ public class InnTest {
         inn.updateQuality();
         inn.updateQuality();
         inn.updateQuality();
-        assertThat(sulfuras.getQuality()).isEqualTo(startQuality + 15);
+        assertThat(sulfuras.quality()).isEqualTo(startQuality + 15);
     }
     @Test
     public void backstage_passes_increases_by1_from_before_day_10_the_concert() throws Exception {
@@ -139,7 +139,7 @@ public class InnTest {
         inn.updateQuality();
         inn.updateQuality();
         inn.updateQuality();
-        assertThat(sulfuras.getQuality()).isEqualTo(startQuality + 5*1+2);
+        assertThat(sulfuras.quality()).isEqualTo(startQuality + 5*1+2);
     }
     @Test
     public void backstage_passes_is_0_after_the_concert() throws Exception {
@@ -147,7 +147,7 @@ public class InnTest {
         Item sulfuras = new BackstagePass(0, startQuality);
         Inn inn = new Inn(asList(sulfuras));
         inn.updateQuality();
-        assertThat(sulfuras.getQuality()).isEqualTo(0);
+        assertThat(sulfuras.quality()).isEqualTo(0);
     }
     
 

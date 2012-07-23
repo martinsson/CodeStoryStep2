@@ -40,8 +40,8 @@ public class RemyInnTest {
 
         // When
         inn.updateQuality();
-        int actualFreshItemQuality = startquality - freshItem.getQuality();
-        int actualPassedItemQuality = startquality - passedItem.getQuality();
+        int actualFreshItemQuality = startquality - freshItem.quality();
+        int actualPassedItemQuality = startquality - passedItem.quality();
 
         // Then
         assertThat(actualFreshItemQuality).isEqualTo(actualPassedItemQuality / 2);
@@ -65,7 +65,7 @@ public class RemyInnTest {
 
         // Then
         for (Item item : items) {
-        	assertThat(item.getQuality()).isGreaterThanOrEqualTo(0);
+        	assertThat(item.quality()).isGreaterThanOrEqualTo(0);
         }
     }
 
@@ -81,7 +81,7 @@ public class RemyInnTest {
         inn.updateQuality();
 
         // Then
-        assertThat(brie.getQuality()).isEqualTo(startQuality+1);
+        assertThat(brie.quality()).isEqualTo(startQuality+1);
     }
 
     @Test
@@ -103,7 +103,7 @@ public class RemyInnTest {
 
         // Then
         for (Item item : items) {
-            assertThat(item.getQuality()).isLessThanOrEqualTo(maxQuality);
+            assertThat(item.quality()).isLessThanOrEqualTo(maxQuality);
         }
     }
 
@@ -119,7 +119,7 @@ public class RemyInnTest {
 
 
         // Then
-        assertThat(sulfuras.getQuality()).isGreaterThanOrEqualTo(startQuality);
+        assertThat(sulfuras.quality()).isGreaterThanOrEqualTo(startQuality);
     }
 
     @Test
@@ -218,7 +218,7 @@ public class RemyInnTest {
         inn.updateQuality();
 
         // Then
-        assertThat(sulfuras.getQuality()).isEqualTo(0);
+        assertThat(sulfuras.quality()).isEqualTo(0);
     }
 
     @Test
@@ -234,7 +234,7 @@ public class RemyInnTest {
     	inn.updateQuality();
 
     	// Then
-    	assertThat(conjured.getQuality()).isEqualTo(4);
+    	assertThat(conjured.quality()).isEqualTo(4);
     }
 
     private List<Integer> inclusiveRange(int min, int max, int step) {
@@ -250,7 +250,7 @@ public class RemyInnTest {
 
     	for (int day= startOfPeriod; day > endOfPeriod; --day) {
         	inn.updateQuality();
-        	qualityInThePeriod.add(backstage.getQuality());
+        	qualityInThePeriod.add(backstage.quality());
     	}
 
 		return qualityInThePeriod;
