@@ -6,13 +6,11 @@ import quality.updaters.QualityUpdaterChain;
 import quality.updaters.UpdaterChain;
 
 public class Item implements QualityStore {
-   protected int sellIn;
    protected int quality;
    protected UpdaterChain qualityUpdater;
 
    public Item(int sellIn, int quality) {
       this.quality = quality;
-      this.sellIn = sellIn;
       qualityUpdater = new QualityUpdaterChain(sellIn, 
             new QualityDecreaser(2, 0), 
             new QualityDecreaser(1));
@@ -35,10 +33,6 @@ public class Item implements QualityStore {
    
    public void removeAllQuality() {
       this.quality = 0;
-   }
-   
-   protected int getSellIn() {
-      return sellIn;
    }
    
    protected int getQuality() {

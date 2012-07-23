@@ -28,4 +28,5 @@ public class QualityUpdaterChain implements UpdaterChain {
          keepOn = !updater.update(item, sellIn);
       }
    }
+
 }
